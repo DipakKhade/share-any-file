@@ -59,7 +59,10 @@ router.post("/", (req: MulterRequest, res: Response, next: NextFunction) => {
         path:req.file.path,
       })
 
-      return res.json({ message: "File added successfully" });
+      return res.json({ 
+        message: "File added successfully" ,
+        uuid:fileuuid
+      });
     } catch (error) {
       return res.status(500).send({ error: "Error saving file to database" });
     }

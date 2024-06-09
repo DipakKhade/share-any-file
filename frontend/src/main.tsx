@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Header ,navItems} from './components/Header.tsx';
+import { ThemeProvider } from './components/theme-provider.tsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -17,7 +18,14 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+
      <Header navItems={navItems} />
+<main className=''>
+
      <RouterProvider router={router} />
+</main>
+
+    </ThemeProvider>
   </React.StrictMode>,
 )

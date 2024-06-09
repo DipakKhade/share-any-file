@@ -7,6 +7,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { cn } from "../utils/cn";
+import { ModeToggle } from "./mode-toggle";
 
 export const navItems = [
     {
@@ -26,6 +27,7 @@ export const navItems = [
         <IconMessage className="h-4 w-4 text-neutral-500 dark:text-white" />
       ),
     },
+  
   ];
 
 
@@ -51,7 +53,7 @@ export const Header = ({
       const direction = current! - scrollYProgress.getPrevious()!;
 
       if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
+        setVisible(true);
       } else {
         if (direction < 0) {
           setVisible(true);
@@ -97,6 +99,9 @@ export const Header = ({
           <span>Login</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
         </button>
+        <div>
+          <ModeToggle/>
+        </div>
       </motion.div>
     </AnimatePresence>
   );

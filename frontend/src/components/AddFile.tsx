@@ -2,14 +2,25 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { Progress } from "@material-tailwind/react";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "./dialog"
 
+  
 export default function AddFile() {
     const [file, setFile] = useState<File | null>(null);
     const [uploadProgress, setUploadProgress] = useState<number>(0);
-  
+    const [selected, setSelected]=useState<boolean>(false)
+
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         const selectedFile = event.target.files ? event.target.files[0] : null;
         setFile(selectedFile);
+        setSelected(true)
     }
   
     function handleSubmit(event: FormEvent) {
@@ -44,17 +55,45 @@ export default function AddFile() {
     }
   console.log(uploadProgress)
     return (
-        <div className="App">
+        <div className="pt-12 text-slate-950 dark:text-slate-50">
+                <Dialog>
             <form onSubmit={handleSubmit}>
-                <input type="file" onChange={handleChange} />
-                <Button type="submit">Upload</Button>
-                <Progress 
-                    value={uploadProgress} 
-                    size="lg" 
-                    className="border border-gray-900/10 bg-gray-900/5 p-1" 
-                    label={`${uploadProgress}%`}
-                />
-            </form>
+                <input type="file" onChange={handleChange} className="p-4"/>
+                <DialogTrigger>
+
+                <Button type="submit" className="dark:bg-slate-50 dark:text-black bg-black p-2">Upload</Button>
+                </DialogTrigger>
+              
+           
+
+  <DialogContent>
+    <DialogHeader>
+        {
+            selected ?  <DialogTitle>uploading file ..</DialogTitle> :  <h2>Select a file to share</h2>
+        }
+      
+      <DialogDescription className="p-4">
+{
+    selected ?  <Progress 
+    value={uploadProgress} 
+    size="md" 
+    label={` `}
+/>   :  'please selact a file to upload and share'
+}
+      
+
+
+      </DialogDescription>
+
+      {
+        selected ?  <Button>copy link</Button>  :''
+      }
+      
+      
+    </DialogHeader>
+  </DialogContent>
+</form>
+</Dialog>
         </div>
     );
 }
