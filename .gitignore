@@ -1,0 +1,130 @@
+# Root-Level .gitignore
+
+node_modules/
+
+# Node dependencies
+/node_modules/
+/frontend/node_modules/
+/backend/node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/frontend/logs/
+/backend/logs/
+
+# Environment variable files
+.env
+/frontend/.env
+/backend/.env
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+/backend/.env.local
+/backend/.env.development.local
+/backend/.env.test.local
+/backend/.env.production.local
+
+# Build and production directories
+/frontend/build/
+/backend/build/
+/frontend/dist/
+/backend/dist/
+/frontend/.next/
+/backend/.next/
+
+# Testing directories
+/frontend/coverage/
+/backend/coverage/
+/frontend/.nyc_output/
+/backend/.nyc_output/
+
+# Misc
+.DS_Store
+/frontend/.DS_Store
+/backend/.DS_Store
+/frontend/.pnp
+/frontend/.pnp.js
+
+# Optional lock files
+/frontend/package-lock.json
+/backend/package-lock.json
+/frontend/yarn.lock
+/backend/yarn.lock
+
+# Optional npm cache directory
+/frontend/.npm/
+/backend/.npm/
+
+# Optional eslint cache
+/frontend/.eslintcache
+/backend/.eslintcache
+
+# Optional stylelint cache
+/frontend/.stylelintcache
+/backend/.stylelintcache
+
+# Optional REPL history
+/frontend/.node_repl_history
+/backend/.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+/frontend/.yarn-integrity
+/backend/.yarn-integrity
+
+# Parcel cache
+/frontend/.cache
+/frontend/.parcel-cache
+
+# PM2 log files
+/backend/.pm2/logs
+
+# VS Code directories
+.vscode/
+.vscode/*
+/frontend/.vscode/
+/backend/.vscode/
+
+# JetBrains IDEs
+.idea/
+/frontend/.idea/
+/backend/.idea/
+
+# TypeScript cache
+/frontend/*.tsbuildinfo
+/backend/*.tsbuildinfo
+
+# Next.js build output
+/frontend/.next
+/frontend/out
+
+# Nuxt.js build / generate output
+/frontend/.nuxt
+/frontend/dist
+
+# Gatsby files
+/frontend/.cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# /frontend/public
+
+# vuepress build output
+/frontend/.vuepress/dist
+
+# Serverless directories
+/backend/.serverless/
+
+# FuseBox cache
+/backend/.fusebox/
+
+# DynamoDB Local files
+/backend/.dynamodb/
+
+# TernJS port file
+/backend/.tern-port
